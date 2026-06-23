@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Data Analysis</title>
+    <style>
+    /* General page styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #141414; /* Netflix dark theme */
+      color: #ffffff;
+    }
+
+    /* Header */
+    header {
+      background-color: #e50914; /* Netflix red */
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    /* Dashboard cards */
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .card {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 20px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    }
+    .card h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #e50914;
+    }
+    .card p {
+      margin: 10px 0 0;
+      font-size: 1.2rem;
+    }
+
+    /* Chart section */
+    .charts {
+      margin: 20px;
+      text-align: center;
+    }
+    canvas {
+      background-color: #1f1f1f;
+      border-radius: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+    <header>
+    <h1>Netflix Data Analysis Dashboard</h1>
+  </header>
+
+<!-- Dashboard Content -->
+ <section class="dashboard">
+    <div class="card">
+      <h2>Total Titles</h2>
+      <p>5000</p>
+    </div>
+    <div class="card">
+      <h2>Movies</h2>
+      <p>3000</p>
+    </div>
+    <div class="card">
+      <h2>TV Shows</h2>
+      <p>2000</p>
+    </div>
+    <div class="card">
+      <h2>Genres</h2>
+      <p>20+</p>
+    </div>
+  </section>
+   <!-- Charts -->
+  <section class="charts">
+    <h2>Genre Distribution</h2>
+    <canvas id="genreChart" width="400" height="200"></canvas>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // JavaScript for chart
+    const ctx = document.getElementById('genreChart').getContext('2d');
+    const genreChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Drama', 'Comedy', 'Action', 'Romance', 'Documentary'],
+        datasets: [{
+          label: 'Genre Distribution',
+          data: [1200, 800, 600, 400, 200],
+          backgroundColor: [
+            '#e50914',
+            '#f5c518',
+            '#1f77b4',
+            '#ff7f0e',
+            '#2ca02c'
+          ]
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
